@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -33,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 Date date = new Date();
                 int[] dateArray = DateUtil.getDateArray(date);
                 Log.d("2333", "onClick: "+dateArray[0]+"/"+""+dateArray[1]+"/"+dateArray[2]);
-                PowerBean pb = new PowerBean(18,0,10,0,true);
+                PowerBean pb = new PowerBean(18,40,10,0,true);
                 HradvareUtil.setThisWeekPower(MainActivity.this,pb,false);
+                Toast.makeText(MainActivity.this,"设置成功！",Toast.LENGTH_SHORT).show();
                // ((TextView)view).setText(dateArray[0]+dateArray[1]+dateArray[2]);
             }
         });

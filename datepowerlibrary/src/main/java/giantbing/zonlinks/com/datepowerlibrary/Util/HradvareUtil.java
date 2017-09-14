@@ -41,6 +41,10 @@ public class HradvareUtil {
      * @param isEveryDay 是不是每天需要 true为每天设置，false为周末关机
      */
     public static void setThisWeekPower(Context context, PowerBean bean, boolean isEveryDay) {
+        if (bean == null)
+            return;
+        if (bean.getOffHour()<bean.getOnHour())
+            return;
         int week;
         Date dNow = new Date();
         week = DateUtil.getWeekInt(dNow);
@@ -78,6 +82,9 @@ public class HradvareUtil {
     public static void setDayPower(Context context, Date date, int offDayOffset, PowerBean bean) {
         if (bean == null)
             return;
+        if (bean.getOffHour()<bean.getOnHour())
+            return;
+
         int[] dateArray;
         int[] offDateArray;
         Date offDate;
@@ -99,6 +106,8 @@ public class HradvareUtil {
     public static void setDayPower(Context context, Date date, PowerBean bean) {
         if (bean == null)
             return;
+        if (bean.getOffHour()<bean.getOnHour())
+            return;
         int[] dateArray;
         Date offDate;
         dateArray = DateUtil.getDateArray(date);
@@ -113,6 +122,10 @@ public class HradvareUtil {
      * 有几天需要设置
      */
     private static void setDayNeedSet(Context context, Date date, int dayset, PowerBean bean, boolean isEverday) {
+        if (bean == null)
+            return;
+        if (bean.getOffHour()<bean.getOnHour())
+            return;
         for (int i = 0; i <= dayset; i++) {
             Date dateAnnother = DateUtil.getDateAfter(i);
             int week = DateUtil.getWeekInt(dateAnnother);
