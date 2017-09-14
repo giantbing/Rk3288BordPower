@@ -2,6 +2,7 @@ package giantbing.zonlinks.com.datepowerlibrary.Util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import java.util.Date;
 
@@ -33,6 +34,25 @@ public class HradvareUtil {
         intent.putExtra("timeoff", timeoffArray);
         intent.putExtra("enable", isSet);
         //使能开关机功能，设为false,则为关闭
+        String s = "";
+
+        for (int i = 0;i<5;i++){
+            if (i!=4){
+                s+=timeonArray[i];
+            }else {
+                s+=timeonArray[i]+"\n";
+            }
+
+        }
+        for (int i = 0;i<5;i++){
+            if (i!=4){
+                s+=timeoffArray[i];
+            }else {
+                s+=timeoffArray[i]+"\n"+isSet;
+            }
+
+        }
+        Log.d("2333", "onClick: "+s);
         context.sendBroadcast(intent);
     }
 

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 ////                sendBroadcast(intent);
                 Date date = new Date();
                 int[] dateArray = DateUtil.getDateArray(date);
-                Log.d("2333", "onClick: "+dateArray[0]+"/"+""+dateArray[1]+"/"+dateArray[2]);
+
                 PowerBean pb = new PowerBean(18,40,10,0,true);
                 HradvareUtil.setThisWeekPower(MainActivity.this,pb,false);
                 Toast.makeText(MainActivity.this,"设置成功！",Toast.LENGTH_SHORT).show();
